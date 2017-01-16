@@ -1,16 +1,29 @@
 <RCC>
     <qresource prefix="/">
-        <file>Img/back.png</file>
-        <file>Img/close.png</file>
         <file>Img/center.png</file>
-        <file>Img/help.png</file>
         <file>Img/reset.png</file>
         <file>Img/ruler.png</file>
-        <file>Img/set.png</file>
         <file>Img/white.png</file>
         <file>Img/windows.png</file>
-        <file>Img/PrintScreen.png</file>
         <file>Img/zoom.png</file>
-        <file>Img/data.png</file>
+        <file>Img/backgroundImg.png</file>
+        <file>Img/empty.png</file>
+        <file>Img/information.png</file>
+        <file>Img/lock.png</file>
+        <file>Img/quit.png</file>
+        <file>Img/set.png</file>
+        <file>Img/snapShot.png</file>
+        <file>Img/coronal.png</file>
+        <file>Img/axial.png</file>
+        <file>Img/3DModel.png</file>
+        <file>Img/input.png</file>
+        <file>Img/registrationEnsure.png</file>
+        <file>Img/toolState.png</file>
+        <file>Img/registrationEnsure1.png</file>
+        <file>Img/registrationEnsure2.png</file>
+        <file>Img/windowSelExd.png</file>
+        <file>Img/zoomExd.png</file>
+        <file>Img/rulerExd.png</file>
+        <file>Img/whiteExd.png</file>
     </qresource>
 </RCC>
