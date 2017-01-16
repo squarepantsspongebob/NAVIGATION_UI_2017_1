@@ -18,4 +18,5 @@ SOURCES += main.cpp\
 HEADERS  += widget.h
 
 RESOURCES += \
-    qml.qrc
+    qml.qrc \
+    img.qrc

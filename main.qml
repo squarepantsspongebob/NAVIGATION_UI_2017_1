@@ -11,10 +11,9 @@ Window {
     title: qsTr("Hello World")
     flags: Qt.FramelessWindowHint|Qt.WindowSystemMenuHint|Qt.WindowMinimizeButtonHint|Qt.Window
     property color bgColor: "white"
-    property color ftColor: "#323233"
-    property color topRColor: "#323233"
+    property color topBottomBarColor: "#323233"
     property color topBtnColor: "#D8D8D8"
-    property color topBtnFontColor: "#A0A0A0"
+    property color topBtnFontColor1: "#D0D0D0"
     property color r1Color: "#4A4A4A"
     property color viewerColor: "black"
     property color grColor: "#5FD0C0"
@@ -22,24 +21,23 @@ Window {
     property color drColor: "darkgray"
     color: bgColor
 
-    ColumnLayout{
-        id: columLayout; spacing:0
+
+    Rectangle{
+        id: columLayout; // spacing:0
         Rectangle{
             id: topR
-            color: topRColor
+            color: topBottomBarColor
             height: 72; width: 1920
             Button{
-                id: returnBtn; x:12; y: 11
-                text: qsTr("Back")
-                contentItem: Text {
-                      text: returnBtn.text
-                      font.pixelSize: 15; font.bold: true
-                      horizontalAlignment: Text.AlignHCenter
-                      verticalAlignment: Text.AlignVCenter
-                      }
+                id: returnBtn; x:33; y: 24
                 background: Rectangle{
-                    color: drColor
-                    implicitHeight: 50; implicitWidth: 50 //Need to write as "implicitHeight" to make the Alignment work
+                    color: topBottomBarColor
+                    implicitHeight: 24; implicitWidth: 24 //Need to write as "implicitHeight" to make the Alignment work
+                    Image{
+                        source: "qrc:/Img/back.png"
+                        width: 24; height: 24
+                        fillMode: Image.PreserveAspectFit
+                    }
                 }
                 onClicked: {
                 }
@@ -53,9 +51,17 @@ Window {
 
             Rectangle{
                 id: dataBtn
-                x: 537; y: 12; width: 211; height: 53
-                radius: 13; color: topBtnColor
-                Text{ text: qsTr("数据"); font.pixelSize: 33; color: topBtnFontColor; anchors.centerIn: parent}
+                x: 539; y: 12; width: 211; height: 53
+                color: topBottomBarColor
+                Image{
+                    source: "qrc:/Img/data.png"
+                    fillMode: Image.PreserveAspectFit
+                }
+                Text{
+                    text: qsTr("数据");
+                    x: 143; y: 15
+                    font.pixelSize: 33; color: topBtnFontColor1
+                }
             }
             Rectangle{
                 id: toolBtn
@@ -67,28 +73,25 @@ Window {
                 id: registrationBtn
                 x: 961; y: 12; width: 211; height: 53
                 radius: 13; color: topBtnColor
-                Text{ text: qsTr("配准"); font.pixelSize: 33; color: topBtnFontColor; anchors.centerIn: parent}
+                Text{ text: qsTr("配准"); font.pixelSize: 33; color: topBtnFontColor1; anchors.centerIn: parent}
             }
             Rectangle{
                 id: navigationBtn
                 x: 1173; y: 12; width: 211; height: 53
                 radius: 13; color: topBtnColor
-                Text{ text: qsTr("导航"); font.pixelSize: 33; color: topBtnFontColor; anchors.centerIn: parent}
+                Text{ text: qsTr("导航"); font.pixelSize: 33; color: topBtnFontColor1; anchors.centerIn: parent}
             }
 
             Button{
                 id: quitBtn;
-                x:1800; y:11
-                text: qsTr("Quit")
-                contentItem: Text {
-                      text: quitBtn.text
-                      font.pixelSize: 15; font.bold: true
-                      horizontalAlignment: Text.AlignHCenter
-                      verticalAlignment: Text.AlignVCenter
-                      }
+                x:1870; y:24
                 background: Rectangle{
-                    color: drColor
-                    implicitHeight: 50; implicitWidth: 50 //Need to write as "implicitHeight" to make the Alignment work
+                    color: topBottomBarColor
+                    Image{
+                        source: "qrc:/Img/close.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                    implicitHeight: 24; implicitWidth: 24 //Need to write as "implicitHeight" to make the Alignment work
                 }
                 onClicked: {
                     Qt.quit()
@@ -118,56 +121,128 @@ Window {
                 }
             } //toolButton Menu
         } //topR
-        RowLayout{
+        Rectangle{
             id: rowLayout;
+            x: 0; y: 72
+            width: 1920; height: 4+968
+            property int spacing1: 33
+            property int spacing2: 15
+            property int spacing3: 23
             Rectangle{
                 id: r1; x: 0; y: 4; width: 77; height: 968
-                color: r1Color
+                color: "black"
                 Rectangle{
                     id: icon1
-                    color: drColor
-                    height: 50; width: height
-                    x: 12; y: 12
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: 11; y: 17
+                    Image{
+                        source:"qrc:/Img/zoom.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
                 }
                 Rectangle{
                     id: icon2
-                    color: drColor
-                    height: 50; width: height
-                    x: icon1.x; y: icon1.y+height+12
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon1.y+implicitWidth+rowLayout.spacing1
+                    Image{
+                        source:"qrc:/Img/windows.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
                 }
                 Rectangle{
                     id: icon3
-                    color: drColor
-                    height: 50; width: height
-                    x: icon1.x; y: icon1.y+height*2+12*2
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon1.y+(implicitWidth+rowLayout.spacing1)*2
+                    Image{
+                        source:"qrc:/Img/center.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
                 }
                 Rectangle{
                     id: icon4
-                    color: drColor
-                    height: 50; width: height
-                    x: icon1.x; y: icon1.y+(height+12)*3
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon1.y+(implicitWidth+rowLayout.spacing1)*3
+                    Image{
+                        source:"qrc:/Img/reset.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                Rectangle{
+                    id: icon5
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon1.y+(implicitWidth+rowLayout.spacing1)*4
+                    Image{
+                        source:"qrc:/Img/ruler.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                Rectangle{
+                    id: icon6
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon1.y+(implicitWidth+rowLayout.spacing1)*5
+                    Image{
+                        source:"qrc:/Img/white.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                Rectangle{
+                    id: icon7
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: 732
+                    Image{
+                        source:"qrc:/Img/help.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                Rectangle{
+                    id: icon8
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon7.y+implicitHeight+rowLayout.spacing2
+                    Image{
+                        source:"qrc:/Img/set.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                Rectangle{
+                    id: icon9
+                    color: "black"
+                    implicitHeight: 56; implicitWidth: implicitHeight
+                    x: icon1.x; y: icon8.y+implicitHeight+rowLayout.spacing3
+                    Image{
+                        source:"qrc:/Img/PrintScreen.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
                 }
             } //r1
             Rectangle{
-                id: r2; x: 77; y: 0
-                width: 752*2+4*3; height: 482*2+4*3
+                id: r2; x: 77; y: 4
+                property int windowHeight1: 482
+                property int windowWidth1: 752
+                width: windowWidth1*2+3+4; height: windowHeight1*2+4+4
                 Rectangle{
                     id: coronalR
                     color: viewerColor
                     height: 482; width: 752
-                    x: 4; y: 4
+                    x: 3; y: 2
                     Label{ text: qsTr("Coronal"); color: "#D0D0D0"
                         x: 17; y: 10; font.pixelSize: 21; font.bold: true}
-                    SpinBox{
-                        from: 0; to: 100; value: 26
-
-                    }
+//                    SpinBox{
+//                        from: 0; to: 100; value: 26
+//                    }
                 }
                 Rectangle{
                     id: axialR
                     color: viewerColor
                     height: 482; width: 752
-                    x: 752+4+4; y: 4
+                    x: width+coronalR.x + 4; y: coronalR.y
                     Label{ text: qsTr("Axial"); color: "#D0D0D0"
                         x: 17; y: 10; font.pixelSize: 21; font.bold: true}
                 }
@@ -189,10 +264,12 @@ Window {
                 }
                } //r2
             Rectangle{
-                width: 330; height: 482*2+4*3
+                width: 330; height: 968
                 color: bgColor
+                x:1594; y:4
                 Rectangle{
-                    x: 4; y: 4; width: 330-4*2; height: 482
+                    x: 4; y: 4;
+                    width: 322; height: 482
                     color: drColor
                     TabBar{
                         id: planBar
@@ -227,7 +304,7 @@ Window {
         Rectangle{
             id: btmR
             color: r1Color
-            x: 0; y: 1016; width: 1920; height: 32
+            x: 0; y: 1048; width: 1920; height: 32
         }
     } //ColumnLayout
     Popup{

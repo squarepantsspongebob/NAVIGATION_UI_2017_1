@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Img/back.png</file>
+        <file>Img/close.png</file>
+        <file>Img/center.png</file>
+        <file>Img/help.png</file>
+        <file>Img/reset.png</file>
+        <file>Img/ruler.png</file>
+        <file>Img/set.png</file>
+        <file>Img/white.png</file>
+        <file>Img/windows.png</file>
+        <file>Img/PrintScreen.png</file>
+        <file>Img/zoom.png</file>
+        <file>Img/data.png</file>
+    </qresource>
+</RCC>
